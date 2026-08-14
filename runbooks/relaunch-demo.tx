@@ -1,0 +1,29 @@
+////////////////////////////////////////////////////////////////
+// Deploy the relaunch demo's program stack on the local surfnet:
+// relaunch at its pinned ID, futarchy over its mainnet address so
+// complete_relaunch CPIs match the branch build. Everything else
+// the demo touches (Raydium, OpenBook, Whirlpool, Metaplex,
+// Squads, token programs, USDC) is forked from mainnet on first
+// use.
+//
+// Binaries live in ./programs — copy fresh ones from the futarchy
+// programs repo's target/deploy after rebuilding there.
+////////////////////////////////////////////////////////////////
+
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+    network_id = input.network_id
+}
+
+action "deploy_stack" "svm::setup_surfnet" {
+    description = "Deploy relaunch + futarchy for the relaunch demo"
+
+    deploy_program {
+        program_id = "vaMpdXN2P3Z5v8y6GtAU5NzCUjxtphnRVpvqu37Spik"
+        binary_path = "./programs/relaunch.so"
+    }
+    deploy_program {
+        program_id = "FUTARELBfJfQ8RDGhg1wdhddq1odMAJUePHFuBYfUxKq"
+        binary_path = "./programs/futarchy.so"
+    }
+}

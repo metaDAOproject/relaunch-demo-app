@@ -1,0 +1,7 @@
+node_modules
+.surfpool/
+.env
+keys/
+ui/public/demo-config.json
+ui/dist
+.DS_Store

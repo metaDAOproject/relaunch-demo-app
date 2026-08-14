@@ -1,0 +1,11 @@
+---
+name: relaunch-demo
+id: relaunch-demo
+runbooks:
+  - name: relaunch-demo
+    description: Deploy relaunch + futarchy for the relaunch demo
+    location: runbooks/relaunch-demo.tx
+environments:
+  localnet:
+    network_id: localnet
+    rpc_api_url: http://127.0.0.1:8899
